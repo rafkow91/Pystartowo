@@ -1,0 +1,1 @@
+# Pystartowo.pl
