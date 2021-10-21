@@ -1,12 +1,5 @@
 version: "3.9"
 services:
-  app:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/app
   db:
     image: "postgres"
     ports:
@@ -17,3 +10,10 @@ services:
       - POSTGRES_PASSWORD=admin
     volumes:
     - ./data/db:/var/lib/postgresql/data
+  app:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
