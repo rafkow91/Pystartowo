@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'pystartowo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'app',
+        'NAME': 'postgres',
         'USER': 'app',
         'PASSWORD': 'admin',
         'HOST': 'db',
