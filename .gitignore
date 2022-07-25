@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # Db files
-/pystartowo/data
+/data
 /.idea
