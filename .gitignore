@@ -131,3 +131,6 @@ dmypy.json
 # Db files
 /data
 /.idea
+
+# My private files
+notes.py
