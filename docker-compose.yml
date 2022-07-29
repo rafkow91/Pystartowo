@@ -2,8 +2,8 @@ version: "3.9"
    
 services:
   db:
-    image: postgres
-    hostname: db
+    image: postgres:14
+    hostname: postgres_db
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:

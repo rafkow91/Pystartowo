@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import dotenv_values
+
+env_vabialbles = dotenv_values('.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qb2)-zf#^=3!j81y9n)j+3+dseq2nr&e+-udwy&4vie-2@dpck'
+SECRET_KEY = env_vabialbles['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,10 +91,10 @@ WSGI_APPLICATION = 'pystartowo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '172.21.0.2',
+        'NAME': env_vabialbles['POSTGRES_DB'],
+        'USER': env_vabialbles['POSTGRES_USER'],
+        'PASSWORD': env_vabialbles['POSTGRES_PASSWORD'],
+        'HOST': '172.18.0.2',
         'PORT': '5432',    }
 }
 
