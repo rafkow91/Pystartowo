@@ -134,3 +134,4 @@ dmypy.json
 
 # My private files
 notes.py
+_*.sh
