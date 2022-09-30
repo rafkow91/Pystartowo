@@ -10,6 +10,8 @@ python = "^3.10"
 psycopg2-binary = "^2.9.3"
 autopep8 = "^1.7.0"
 Django = "^4.1.1"
+python-dotenv = "^0.21.0"
+cookiecutter = "^2.1.1"
 
 
 [build-system]
