@@ -26,6 +26,7 @@ urlpatterns = [
     # NOTE: change the URL for Admin, for added security.
     # See #2 here: https://opensource.com/article/18/1/10-tips-making-django-admin-more-secure
     path("admin/", admin.site.urls),
+    path("posts/", include('posts.urls')),
     path("", TemplateView.as_view(template_name="homepage.html"), name="homepage"),
 ]
 # fmt: on
