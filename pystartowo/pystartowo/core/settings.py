@@ -38,15 +38,31 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    # TinyMCE
+    'tinymce',
+
+    # Django autocomplete light
+    'dal',
+    'dal_select2',
+
+    # Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Put your new apps here!
+    
+    # installed apps
+    'django_extensions',
+    # 'import_export',
+    'crispy_forms',
+    'sorl.thumbnail',
+
+    # my apps
     'posts.apps.PostsConfig',
     'tags.apps.TagsConfig',
+    'users.apps.UsersConfig',
 
 ]
 
@@ -131,3 +147,26 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# Login/logout redirect
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# TinyMCE
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "600px",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+               "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+               "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+               "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+               "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+               "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "language": "pl_PL",  # To force a specific language instead of the Django current language.
+}

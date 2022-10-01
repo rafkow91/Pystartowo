@@ -7,17 +7,17 @@
 
 from django.db import models
 
-from .managers import MyBaseQuerySet
+from .managers import BaseQuerySet
 
 
-class MyBaseModel(models.Model):
+class BaseModel(models.Model):
     """Base abstract model for all models used throughout the project."""
 
-    objects = MyBaseQuerySet.as_manager()
+    objects = BaseQuerySet.as_manager()
 
     ## Basic time tracking for all models ##
-    created_at = models.DateTimeField("created", auto_now_add=True, db_index=True)
-    updated_at = models.DateTimeField("updated", auto_now=True, db_index=True)
+    created_at = models.DateTimeField('created', auto_now_add=True, db_index=True)
+    updated_at = models.DateTimeField('updated', auto_now=True, db_index=True)
 
     class Meta:
         abstract = True

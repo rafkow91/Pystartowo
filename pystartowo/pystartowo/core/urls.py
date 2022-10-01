@@ -28,6 +28,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("posts/", include('posts.urls')),
     path("", TemplateView.as_view(template_name="homepage.html"), name="homepage"),
+    path('tinymce/', include('tinymce.urls')),
 ]
 # fmt: on
 
