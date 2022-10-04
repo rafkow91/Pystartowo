@@ -10,9 +10,9 @@ class Post(BaseModel):
     content = models.TextField()
     published = models.BooleanField(default=False)
     sponsored = models.BooleanField(default=False)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='posts_authors')
-    editor = models.ForeignKey('auth.User', on_delete=models.CASCADE,
-                               related_name='posts_editors', blank=True, null=True)
+    author = models.ForeignKey('auth.User', on_delete=models.SET_DEFAULT, related_name='posts_authors', default='User deleted')
+    editor = models.ForeignKey('auth.User', on_delete=models.SET_DEFAULT,
+                               related_name='posts_editors', blank=True, null=True,  default='User deleted')
     edited_at = models.DateTimeField(auto_now=True, null=True)
     slug = models.SlugField(unique=True, max_length=100, blank=True)
     tags = models.ManyToManyField('tags.Tag', related_name='posts', blank=True)

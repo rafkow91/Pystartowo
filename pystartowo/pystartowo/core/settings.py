@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_extensions',
     # 'import_export',
     'crispy_forms',
+    'crispy_bootstrap5',
     'sorl.thumbnail',
 
     # my apps
@@ -123,6 +124,8 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+AUTH_USER_MODELS = ['users.User',]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -149,6 +152,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Login/logout redirect
