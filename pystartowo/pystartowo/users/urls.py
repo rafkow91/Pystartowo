@@ -15,6 +15,6 @@ urlpatterns = [
     path("~update/", view=user_update_view, name="update"),
     path("~count", view=user_counter_view, name="counter"),
     path("", view=user_list_view, name="list"),
-    path("<str:username>/", view=user_detail_view, name="detail"),
+    path("<str:username>/", view=user_detail_view, name="details"),
     path("register/", view=user_register_view, name="register"),
 ]

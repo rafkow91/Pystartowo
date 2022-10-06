@@ -22,7 +22,7 @@
           <a class="nav-link" href="{% url 'posts:list' %}">Dodaj nowy wpis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:update' %}">Edytuj swój profil</a>
+          <a class="nav-link" href="{% url 'users:details' request.user.username %}">Twój profil</a>
         </li>
         {% comment %}
         <li class="nav-item dropdown">

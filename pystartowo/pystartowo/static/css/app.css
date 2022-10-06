@@ -44,6 +44,11 @@ code {
 /* My CSS definitions
 -------------------------------------------------- */
 
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
 .form {
   max-width: 400px;
   display: block;

@@ -1,27 +1,43 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% load static %}
 
-{% block head_title %}Home{% endblock %}
+{% block head_title %}User: {{ object.username }}{% endblock %}
 
 {% block body_content %}
+<div class="container">
 
-<h1>Rejestracja nowego użytkownika</h1>
+    <div class="form">
+        {% if object.first_name or object.last_name %}
+        <h2 class="user-details">{{ object.first_name }} {{ object.last_name }}</h2>
+        {% else %}
+        <h2 class="user-details">{{ object.username }}</h2>
+        {% endif %}
 
-<div class="form">
-    <form method="POST" class="form-group">
-        {% csrf_token %}
-        {{ form|crispy }}
+        <table class="table col-sm-12 table-sm">
+            <tbody>
+                <tr>
+                    <td>Login:</td>
+                    <td><b>{{ object.username }}</b></td>
+                </tr>
+                <tr>
+                    <td>Login z Discord'a:</td>
+                    <td><b>{{ object.discord_login }}</b></td>
+                </tr>
+                <tr>
+                    <td>O mnie:</td>
+                    <td><b>{{ object.bio }}</b></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><b>{{ object.email }}</b></td>
+                </tr>
+            </tbody>
+        </table>
+        {% if object.username == request.user.username %}
         <div class="text-end">
-            <button type="submit" class="btn btn-success">Zapisz</button>
+            <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">Edytuj</a>
         </div>
-    </form>
-
+        {% endif %}
+    </div>
 </div>
-
-{% endblock %}
-
-{% block body_js %}
-<!-- {# Add your JavaScript content here, where it will be included at the end of the
-
-<body> tag. #} -->
 {% endblock %}
