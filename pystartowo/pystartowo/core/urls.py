@@ -19,16 +19,20 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
+from users.views import user_register_view
 
 # fmt: off
 # (Skip Black formatting in this section)
 urlpatterns = [
     # NOTE: change the URL for Admin, for added security.
     # See #2 here: https://opensource.com/article/18/1/10-tips-making-django-admin-more-secure
-    path("admin/", admin.site.urls),
-    path("posts/", include('posts.urls')),
-    path("", TemplateView.as_view(template_name="homepage.html"), name="homepage"),
     path('tinymce/', include('tinymce.urls')),
+    path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='homepage.html'), name='homepage'),
+    path('posts/', include('posts.urls')),
+    path('users/', include('users.urls')),
+    path('register/', user_register_view, name='register'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 # fmt: on
 

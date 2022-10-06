@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}User: {{ object.username }}{% endblock %}
+
+{% block body_content %}
+<div class="container">
+
+    <div class="form">
+        {% if object.first_name or object.last_name %}
+        <h2 class="user-details">{{ object.first_name }} {{ object.last_name }}</h2>
+        {% else %}
+        <h2 class="user-details">{{ object.username }}</h2>
+        {% endif %}
+
+        <table class="table col-sm-12 table-sm">
+            <tbody>
+                <tr>
+                    <td>Login:</td>
+                    <td><b>{{ object.username }}</b></td>
+                </tr>
+                <tr>
+                    <td>Login z Discord'a:</td>
+                    <td><b>{{ object.discord_login }}</b></td>
+                </tr>
+                <tr>
+                    <td>O mnie:</td>
+                    <td><b>{{ object.bio }}</b></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><b>{{ object.email }}</b></td>
+                </tr>
+            </tbody>
+        </table>
+        {% if object.username == request.user.username %}
+        <div class="text-end">
+            <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">Edytuj</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

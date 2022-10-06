@@ -4,5 +4,5 @@ from .views import home
 
 app_name = 'posts'
 urlpatterns = [
-    path('', home, name='home'),
+    path('', home, name='list'),
 ]
