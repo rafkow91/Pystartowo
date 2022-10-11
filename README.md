@@ -1,6 +1,7 @@
 # Pystartowo.pl
 
 *Python knowledge base for beginners*
+## Based on
 
 Build with [Django Bootstrap Template](https://github.com/griceturrble/django-bootstrap-template/)
 
