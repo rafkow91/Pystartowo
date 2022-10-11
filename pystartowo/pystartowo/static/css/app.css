@@ -80,11 +80,12 @@ h2 {
 }
 
 .post-nav {
-  padding: 15px;
-  border-radius: 15px;
-  width: 20%;
-  min-width: 200px;
   background-color: #aaa;
+  border-radius: 15px;
+  height: 70vh;
+  min-width: 200px;
+  padding: 15px;
+  width: 20%;
 }
 
 .post-nav a:hover,
@@ -128,4 +129,17 @@ input.search {
   margin: 100px auto 0 auto;
   padding-bottom: 40px;
   width: 50%;
+}
+
+.tag-name {
+  border: 1px solid green;
+  border-radius: 25px;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
+img.icon {
+  width: 25px;
 }

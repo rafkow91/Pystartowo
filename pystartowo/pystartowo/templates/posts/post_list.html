@@ -1,5 +1,6 @@
+{% load static %}
 <div class="topics">
-    <h4>Tematy</h4>
+    <h4>Tematy <a href="#"><img class="icon" src="{% static 'icons/magnifying-glass-solid.svg' %}" alt="search"></a></h4>
     <ul>
         {% for obj in object_list %}
         <li><a href="{% url 'posts:detail' obj.slug %}">{{ obj.title }}</a></li>

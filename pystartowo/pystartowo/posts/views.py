@@ -28,11 +28,11 @@ class PostDetailView(DetailView):
     model = Post
     slug_field = "slug"
 
-class PostToAdd(FormView):
+class ToAddFormView(FormView):
     model = ToAdd
 
 
-post_detail_view = PostDetailView.as_view()
+to_add_form_view = ToAddFormView.as_view()
 
 
 def home(request):

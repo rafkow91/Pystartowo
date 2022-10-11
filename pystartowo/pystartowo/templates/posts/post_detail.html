@@ -11,8 +11,16 @@
     </div>
     <div class="post-detail">
         <h2>{{object.title}}</h2>
-        <p>{{ object.content }}</p>
-        <p class="author">{{ object.author }} - {{ object.created_at }}</p>
+        <p class="tags">
+            {% for obj in object.tags.all %}
+                <span class="tag-name">{{ obj.name }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ object.content|linebreaks }}</p>
+        <p class="author">autor: {{ object.author }} - {{ object.created_at|date }}</p>
+        {% if object.editor %}
+        <p class="author">edycja: {{ object.editor }} - {{ object.edited_at|date }}</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
