@@ -2,13 +2,15 @@
 
 *Python knowledge base for beginners*
 
-[![Built with Django Bootstrap Template](https://img.shields.io/badge/Built%20with-Django%20Bootstrap%20Template-blueviolet.svg)](https://github.com/griceturrble/django-bootstrap-template/) [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+Build with [Django Bootstrap Template](https://github.com/griceturrble/django-bootstrap-template/)
 
 Module 'users' based on [Django-Crash-Starter](https://github.com/feldroy/django-crash-starter)
 
 Favicon downloaded from [Icons8](https://icons8.com) site.
 
 Icons downloaded from [Font Awersome](https://fontawesome.com/) site.
+
+Formated in [Autopep8](https://github.com/hhatto/autopep8) style
 
 ## License
 

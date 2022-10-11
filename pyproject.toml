@@ -61,6 +61,7 @@ crispy-bootstrap5 = "^0.7"
 
 [tool.poetry.group.dev.dependencies]
 pylint-django = "^2.5.3"
+autopep8 = "^1.7.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -20,8 +20,8 @@ from .forms import UserCreationForm, UserLoginForm
 
 class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
-    slug_field = 'username'
-    slug_url_kwarg = 'username'
+    slug_field = "username"
+    slug_url_kwarg = "username"
 
 
 user_detail_view = UserDetailView.as_view()
@@ -29,26 +29,24 @@ user_detail_view = UserDetailView.as_view()
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     fields = [
-        'first_name',
-        'last_name',
-        'discord_login',
-        'bio',
+        "first_name",
+        "last_name",
+        "discord_login",
+        "bio",
     ]
 
     model = User
-    success_url = '/success/'
-    success_message = _('Profile Updated')
+    success_url = "/success/"
+    success_message = _("Profile Updated")
 
     def get_success_url(self):
         return reverse(
-            'users:details',
-            kwargs={'username': self.request.user.username},
+            "users:details",
+            kwargs={"username": self.request.user.username},
         )
 
     def get_object(self):
-        return User.objects.get(
-            username=self.request.user.username
-        )
+        return User.objects.get(username=self.request.user.username)
 
 
 user_update_view = UserUpdateView.as_view()
@@ -59,8 +57,8 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self):
         return reverse(
-            'users:detail',
-            kwargs={'username': self.request.user.username},
+            "users:detail",
+            kwargs={"username": self.request.user.username},
         )
 
 
@@ -69,11 +67,11 @@ user_redirect_view = UserRedirectView.as_view()
 
 class UserCounterView(View):
     model = User
-    template_name = 'users/counter.html'
+    template_name = "users/counter.html"
 
     def get(self, request):
         users_counter = User.objects.count()
-        return render(request, self.template_name, {'users_counter': users_counter})
+        return render(request, self.template_name, {"users_counter": users_counter})
 
 
 user_counter_view = UserCounterView.as_view()
@@ -81,25 +79,25 @@ user_counter_view = UserCounterView.as_view()
 
 class UserListView(ListView):
     model = User
-    
+
 
 user_list_view = UserListView.as_view()
 
 
 class UserRegisterView(CreateView):
     form = UserCreationForm
-    template_name = 'registration/register.html'
+    template_name = "registration/register.html"
 
     def get(self, request):
         form = self.form()
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {"form": form})
 
     def post(self, response):
         form = self.form(response.POST)
         if form.is_valid():
             form.save()
 
-        return redirect(reverse('homepage'))
+        return redirect(reverse("homepage"))
 
 
 user_register_view = UserRegisterView.as_view()
@@ -107,18 +105,18 @@ user_register_view = UserRegisterView.as_view()
 
 class UserLoginView(FormView):
     form = UserLoginForm
-    template_name = 'registration/login.html'
+    template_name = "registration/login.html"
 
     def get(self, request):
         form = self.form()
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {"form": form})
 
     def post(self, response):
         form = self.form(response.POST)
         if form.is_valid():
             form.save()
 
-        return redirect(reverse('home'))
+        return redirect(reverse("homepage"))
 
 
 user_login_view = UserLoginView.as_view()

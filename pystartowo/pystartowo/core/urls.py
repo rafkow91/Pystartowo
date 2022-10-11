@@ -31,6 +31,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='homepage.html'), name='homepage'),
     path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
+    path('tags/', include('tags.urls')),
     path('register/', user_register_view, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

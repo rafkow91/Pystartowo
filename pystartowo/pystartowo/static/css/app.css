@@ -84,6 +84,7 @@ h2 {
   border-radius: 15px;
   height: 70vh;
   min-width: 200px;
+  margin-right: 50px;
   padding: 15px;
   width: 20%;
 }
@@ -97,10 +98,33 @@ h2 {
 
 .post-nav li:hover {
   padding-left: 5px;
+  font-weight: 600;
 }
 
 .post-nav ul {
   list-style-type: none;
+}
+
+div.topics {
+  position: relative;
+  height: 100%;
+}
+
+div.topics header {
+  display: flex;
+}
+
+div.topics header p.topics {
+  width: 90%;
+  font-size: 1.2rem;
+}
+
+
+div.topics footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
 }
 
 p.author {
@@ -108,21 +132,21 @@ p.author {
   font-size: xx-small;
   text-align: right;
 }
-
+/* 
 .search-area {
   background-color: #666;
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   margin-top: 30px;
-}
+} */
 
-input.search {
+/* input.search {
   border-radius: 5px;
   padding: 5px;
   margin-bottom: 10px;
   width: 100%;
-}
+} */
 
 .copyright {
   border-radius: 10px;
@@ -142,4 +166,8 @@ input.search {
 
 img.icon {
   width: 25px;
+}
+
+.add_post {
+  max-width: 80%;
 }

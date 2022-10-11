@@ -1,16 +1,40 @@
 {% load static %}
-<div class="topics">
-    <h4>Tematy <a href="#"><img class="icon" src="{% static 'icons/magnifying-glass-solid.svg' %}" alt="search"></a></h4>
-    <ul>
-        {% for obj in object_list %}
-        <li><a href="{% url 'posts:detail' obj.slug %}">{{ obj.title }}</a></li>
-        {% endfor %}
-    </ul>
-</div>
-<!-- TODO: do zrobienia wyszukiwarka -->
-<!-- <form class="search-area" method="get">
-    <input class="search" type="text" name="q" value="{{ request.GET.q }}">
-    <div class="text-end">
-        <input class="btn btn-outline-light me-2" type="submit" value="Szukaj">
-    </div> -->
-</form>
+
+<head>
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-free-5.15.4/css/all.css' %}">
+</head>
+
+<body>
+    <div class="topics">
+        <header>
+            <p class="topics"><b>Tematy</b></p>
+        <!-- TODO: add search engine -->
+            <!-- <a href="#"><i class="fas fa-search"></i></a> -->
+        </header>
+        <main>
+            <ul>
+                {% for obj in object_list %}
+                <li><a href="{% url 'posts:detail' obj.slug %}">{{ obj.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </main>
+        <footer>
+        <!-- TODO: add pagination -->
+            <!-- {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            {% endif %}
+            
+            <span class="current">
+                {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}
+            </span>
+            
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            {% endif %} -->
+        </footer>
+    </div>
+</body>

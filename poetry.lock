@@ -689,7 +689,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "7326f0a1f0f214593ffef1aaa66f198415abfc1470f6e12dc6d1a36430f42d4b"
+content-hash = "df4263b08605fe9eabf890eb30a76609478173b2b7e2c55cc09900a43d80ac08"
 
 [metadata.files]
 arrow = [

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head_title %} Baza wiedzy - {{object.title}} {% endblock %}
+
+
+{% block body_content %}
+<h1>Do uzupełnienia</h1>
+
+<div class="post">
+    <div class="post-nav" w3-include-html="{% url 'posts:list' %}">
+    </div>
+    <div class="post-detail">
+        <div class="form add_post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="text-end">
+                <button type="submit" class="btn btn-success">Zapisz</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_js %}
+<script>
+    includeHTML()
+</script>
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+{{ form.media }}
+{% endblock %}
