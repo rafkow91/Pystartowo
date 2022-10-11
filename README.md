@@ -3,15 +3,11 @@
 *Python knowledge base for beginners*
 ## Based on
 
-Build with [Django Bootstrap Template](https://github.com/griceturrble/django-bootstrap-template/)
-
-Module 'users' based on [Django-Crash-Starter](https://github.com/feldroy/django-crash-starter)
-
-Favicon downloaded from [Icons8](https://icons8.com) site.
-
-Icons downloaded from [Font Awersome](https://fontawesome.com/) site.
-
-Formated in [Autopep8](https://github.com/hhatto/autopep8) style
+- Build with [Django Bootstrap Template](https://github.com/griceturrble/django-bootstrap-template/)
+- Module 'users' based on [Django-Crash-Starter](https://github.com/feldroy/django-crash-starter)
+- Favicon downloaded from [Icons8](https://icons8.com) site.
+- Icons downloaded from [Font Awersome](https://fontawesome.com/) site.
+- Formated in [Autopep8](https://github.com/hhatto/autopep8) style
 
 ## License
 
