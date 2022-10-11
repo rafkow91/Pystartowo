@@ -44,9 +44,12 @@ code {
 /* My CSS definitions
 -------------------------------------------------- */
 
+h1,
 h2 {
   width: 100%;
   text-align: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 .form {
@@ -62,5 +65,67 @@ h2 {
   display: inline-block;
   font-size: small;
   padding: 0 5px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.post {
+  display: flex;
+}
+
+.post-detail {
+  padding: 15px;
+  border-radius: 15px;
+  width: 80%;
+  text-align: justify;
+}
+
+.post-nav {
+  padding: 15px;
+  border-radius: 15px;
+  width: 20%;
+  min-width: 200px;
+  background-color: #aaa;
+}
+
+.post-nav a:hover,
+.post-nav a:visited,
+.post-nav a {
+  color: black;
+  text-decoration: none;
+}
+
+.post-nav li:hover {
+  padding-left: 5px;
+}
+
+.post-nav ul {
+  list-style-type: none;
+}
+
+p.author {
+  font-style: italic;
+  font-size: xx-small;
+  text-align: right;
+}
+
+.search-area {
+  background-color: #666;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+input.search {
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.copyright {
+  border-radius: 10px;
+  margin: 100px auto 0 auto;
+  padding-bottom: 40px;
+  width: 50%;
 }

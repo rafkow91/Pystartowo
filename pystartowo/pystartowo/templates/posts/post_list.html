@@ -1,0 +1,15 @@
+<div class="topics">
+    <h4>Tematy</h4>
+    <ul>
+        {% for obj in object_list %}
+        <li><a href="{% url 'posts:detail' obj.slug %}">{{ obj.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- TODO: do zrobienia wyszukiwarka -->
+<!-- <form class="search-area" method="get">
+    <input class="search" type="text" name="q" value="{{ request.GET.q }}">
+    <div class="text-end">
+        <input class="btn btn-outline-light me-2" type="submit" value="Szukaj">
+    </div> -->
+</form>

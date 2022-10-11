@@ -12,14 +12,14 @@
           <a class="nav-link" href="/">Strona główna</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'posts:list' %}">Baza wiedzy</a>
+          <a class="nav-link" href="{% url 'posts:main' %}">Baza wiedzy</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'posts:list' %}">Do uzupełnienia</a>
+          <a class="nav-link" href="{% url 'posts:to_add' %}">Do uzupełnienia</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'posts:list' %}">Dodaj nowy wpis</a>
+          <a class="nav-link" href="{% url 'posts:add' %}">Dodaj nowy wpis</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'users:details' request.user.username %}">Twój profil</a>
@@ -41,7 +41,7 @@
 
     <div class="text-end">
       {% if user.is_authenticated %}
-      <p id="display-username">Jesteś zalogowany jako: <b>{{ user.username }}</b></p>
+      <p id="display-username">Jesteś zalogowany jako: <b>{{ request.user.username }}</b></p>
       <a class="btn btn-outline-light me-2" href="{% url 'logout' %}">Wyloguj</a>
       {% else %}
       <a class="btn btn-outline-light me-2" href="{% url 'register' %}">Zarejestruj</a>

@@ -81,8 +81,7 @@ user_counter_view = UserCounterView.as_view()
 
 class UserListView(ListView):
     model = User
-    template_name = 'users/list.html'
-
+    
 
 user_list_view = UserListView.as_view()
 

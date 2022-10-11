@@ -174,3 +174,5 @@ TINYMCE_DEFAULT_CONFIG = {
     "custom_undo_redo_levels": 10,
     "language": "pl_PL",  # To force a specific language instead of the Django current language.
 }
+if DEBUG:
+    SHELL_PLUS_PRINT_SQL = True

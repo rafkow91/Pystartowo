@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head_title %} Baza wiedzy - {{object.title}} {% endblock %}
+
+
+{% block body_content %}
+<h1>Baza wiedzy</h1>
+
+<div class="post">
+    <div class="post-nav" w3-include-html="{% url 'posts:list' %}">
+    </div>
+    <div class="post-detail">
+        <h2>{{object.title}}</h2>
+        <p>{{ object.content }}</p>
+        <p class="author">{{ object.author }} - {{ object.created_at }}</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_js %}
+<script>
+    includeHTML()
+</script>
+{% endblock %}

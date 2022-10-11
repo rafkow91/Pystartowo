@@ -22,17 +22,11 @@
   {## HEAD JS - deferred scripts only! ##}
   {# FontAwesome SVG styles #}
   <script defer src="{% static 'vendor/fontawesome-free-5.15.4/js/all.min.js' %}"></script>
-  {% comment %}
-    FontAwesome can be served via CDN from their website.
-    However, their CDN support is on a per-account basis. In order to use a CDN,
-    you must create an account on fontawesome.com and request a kit.
+  <script src="{% static 'js/app.js' %}"></script>
 
-    If you choose that route, you may safely remove the local files from this project
-    and serve via your own CDN kit.
-
-    The code, icons, and other FontAwesome files are covered by licenses as detailed here:
-    https://fontawesome.com/license/free
-  {% endcomment %}
+  <link type="image/png" sizes="16x16" rel="icon" href="{% static 'favicons/icons8-python-color-16.png' %}">
+  <link type="image/png" sizes="32x32" rel="icon" href="{% static 'favicons/icons8-python-color-32.png' %}">
+  <link type="image/png" sizes="96x96" rel="icon" href="{% static 'favicons/icons8-python-color-96.png' %}">
 
   {% block head_js %}{% endblock head_js %}
 
@@ -57,7 +51,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   {# App JavaScript #}
-  <script src="{% static 'js/app.js' %}?v=0.1.0"></script>  {# Tip: update the `?v` param to force browsers to recache a new file version. #}
+  <script src="{% static 'js/app.js' %}"></script> 
 
   {% block body_js %}{% endblock %}
 </body>
