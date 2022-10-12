@@ -8,6 +8,7 @@
 - Favicon downloaded from [Icons8](https://icons8.com) site.
 - Icons downloaded from [Font Awersome](https://fontawesome.com/) site.
 - Formated in [Autopep8](https://github.com/hhatto/autopep8) style
+- and more problems read on [StackOverflow](https://stackoverflow.com/)
 
 ## License
 
