@@ -1,6 +1,7 @@
 # Pystartowo.pl
 
-*Python knowledge base for beginners*
+_Python knowledge base for beginners_
+
 ## Based on
 
 - Build with [Django Bootstrap Template](https://github.com/griceturrble/django-bootstrap-template/)
@@ -13,7 +14,6 @@
 ## License
 
 This project uses the MIT license. Please see the [LICENSE](LICENSE) for details.
-
 
 ## Installation
 
@@ -39,7 +39,7 @@ This project uses the MIT license. Please see the [LICENSE](LICENSE) for details
    pip install -r requirements.txt
    ```
 
-1. *PostgreSQL settings*: if not present already create a new `.env` file at `pystartowo/core/.env`. This file should be gitignored from the repo, and should contain credentials for connecting to the PostgreSQL database:
+1. _PostgreSQL settings_: if not present already create a new `.env` file at `pystartowo/core/.env`. This file should be gitignored from the repo, and should contain credentials for connecting to the PostgreSQL database:
 
    - `POSTGRES_NAME`: database name
    - `POSTGRES_USER`: username

@@ -12,8 +12,6 @@ class UserChangeForm(UserChangeForm):
 
 
 class UserCreationForm(UserCreationForm):
-    # email = forms.EmailField()
-
     error_message = UserCreationForm.error_messages.update(
         {
             'duplicate_username': _(
@@ -30,7 +28,7 @@ class UserCreationForm(UserCreationForm):
             'password2',
             'discord_login',
             'email',
-            ]
+        ]
 
     def clean_username(self):
         username = self.cleaned_data['username']

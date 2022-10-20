@@ -11,5 +11,5 @@ class MailSender():
                 'host': 'mail.mail'
             }
         
-    def send_mail(title):
-        print(f'send mail\n\tTitle: ')
+    def send_mail(self, title):
+        print(f'send mail\n\tTitle: {title}\n', '-' * 100, '\n')
