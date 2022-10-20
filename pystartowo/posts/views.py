@@ -28,13 +28,15 @@ post_list_view = PostListView.as_view()
 
 class PostDetailView(DetailView):
     model = Post
-    slug_field = "slug"
+    slug_field = 'slug'
 
 
 post_detail_view = PostDetailView.as_view()
+
+
 class PostFormView(CreateView):
     model = Post
-    template_name = "posts/post_form.html"
+    template_name = 'posts/post_form.html'
     form_class = PostForm
 
 
@@ -43,11 +45,20 @@ post_form_view = PostFormView.as_view()
 
 class ToAddFormView(CreateView):
     model = ToAdd
-    template_name = "posts/post_form.html"
-    fields = ['title', 'content', 'from_module', 'email']
+    template_name = 'posts/post_form.html'
+    fields = ['title', 'content', 'tags', 'email']
+    labels = {
+        'title': 'Tytuł',
+        'content': 'Co możemy spróbować Ci wyjaśnić?',
+        'tags': 'W którym module natrafiłeś na ten problem?',
+        'email': 'Adres email',
+    }
+
+    def get_form(self):
+        form = super().get_form(None)
+        for key in self.labels.keys():
+            form.fields[key].label = self.labels[key]
+        return form
+
 
 to_add_form_view = ToAddFormView.as_view()
-
-
-def home(request):
-    return render(request, "homepage.html")

@@ -10,7 +10,7 @@ class PostForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
         widget=autocomplete.ModelSelect2Multiple(url='tags:tag-autocomplete')
-        )
+    )
 
     class Meta:
         model = Post
@@ -23,7 +23,16 @@ class PostForm(forms.ModelForm):
 
 
 class ToAddForm(forms.ModelForm):
-    pass
-    # class Meta:
-    #     model = ToAdd
-    #     fields = "__all__"
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=autocomplete.ModelSelect2Multiple(url='tags:tag-autocomplete-to-add')
+    )
+
+    class Meta:
+        model = ToAdd
+        fields = [
+            'title',
+            'content',
+            'tags',
+            'email',
+        ]
