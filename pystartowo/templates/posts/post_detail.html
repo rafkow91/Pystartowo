@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head_title %} Baza wiedzy - {{object.title}} {% endblock %}
 
@@ -17,6 +18,11 @@
             {% endfor %}
         </p>
         <p>{{ object.content|linebreaks }}</p>
+        
+        {% if object.image_file %}
+        <img src="{{ object.image_file.url }}" alt="obrazek: {{ object.title}}">
+        {% endif %}
+        
         <p class="author">autor: {{ object.author }} - {{ object.created_at|date }}</p>
         {% if object.editor %}
         <p class="author">edycja: {{ object.editor }} - {{ object.edited_at|date }}</p>
