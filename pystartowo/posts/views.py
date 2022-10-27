@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -42,7 +43,6 @@ class PostFormView(CreateView):
     model = Post
     template_name = 'posts/post_form.html'
     form_class = PostForm
-    success_url = '/posts/'
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -50,6 +50,30 @@ class PostFormView(CreateView):
             instance.author = User.objects.get(username=self.request.user)
         except:
             instance.author = None
+
+        instance.published = False
+
+        instance.save()
+        
+        author_groups = [group.name for group in instance.author.groups.all()]
+        author_posts = Post.objects.filter(author=instance.author).filter(published=True).count()
+
+        if 'UsersGroup' in author_groups and author_posts > 5:
+            user = User.objects.get(username=instance.author)
+            try:
+                user_group = Group.objects.get(name='WritersGroup')
+            except:
+                Group.objects.create(name='WritersGroup')
+                user_group = Group.objects.get(name='WritersGroup')
+
+            user.groups.add(user_group)
+            user.save()
+            author_groups = [group.name for group in instance.author.groups.all()]
+
+        if 'WritersGroup' in author_groups:
+            instance.published = True
+            instance.save()
+
         instance = form.save()
 
         return HttpResponseRedirect(reverse('posts:main'))

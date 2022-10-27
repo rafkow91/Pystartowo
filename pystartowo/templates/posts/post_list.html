@@ -8,18 +8,20 @@
     <div class="topics">
         <header>
             <p class="topics"><b>Tematy</b></p>
-        <!-- TODO: add search engine -->
+            <!-- TODO: add search engine -->
             <!-- <a href="#"><i class="fas fa-search"></i></a> -->
         </header>
         <main>
             <ul>
                 {% for obj in object_list %}
+                {% if obj.published %}
                 <li><a href="{% url 'posts:detail' obj.slug %}">{{ obj.title }}</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </main>
         <footer>
-        <!-- TODO: add pagination -->
+            <!-- TODO: add pagination -->
             <!-- {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}">
                 <i class="fas fa-chevron-left"></i>
