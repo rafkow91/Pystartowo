@@ -1,4 +1,3 @@
-from tokenize import group
 from django.db import models
 from django.utils.text import slugify
 from sorl.thumbnail import ImageField
@@ -55,12 +54,6 @@ class Post(BaseModel):
             self.slug = slugify(self.title)
         if not self.editor:
             self.edited_at = None
-        
-        user = User.objects.get(username=self.author)
-        groups = user.groups.all()
-        posts = Post.objects.filter(author=user).filter(published=True).count()
-        
-
         return super().save(*args, **kwargs)
 
 
