@@ -171,3 +171,9 @@ img.icon {
 .add_post {
   max-width: 80%;
 }
+
+p.register-info {
+  font-style: italic;
+  width: 100%;
+  text-align: center;
+}
