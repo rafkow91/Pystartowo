@@ -15,7 +15,7 @@ class UserAdmin(admin.ModelAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
     fieldsets = (
-        ('User', {'fields': ('discord_login', 'bio')}),
+        ('User', {'fields': ('name',)}),
     ) + auth_admin.UserAdmin.fieldsets
     list_display = ['username', 'first_name', 'last_name', 'email', 'is_superuser', 'is_active']
     search_fields = ['username']

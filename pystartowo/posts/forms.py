@@ -33,7 +33,7 @@ class PostForm(forms.ModelForm):
 class ToAddForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
-        widget=autocomplete.ModelSelect2Multiple(url='tags:tag-autocomplete'),
+        widget=autocomplete.ModelSelect2Multiple(url='tags:tag-autocomplete-to-add'),
         label='W którym module natrafiłeś na ten problem?'
     )
 
