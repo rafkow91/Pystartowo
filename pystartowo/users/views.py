@@ -90,6 +90,7 @@ class UserRegisterView(CreateView):
 
     def form_valid(self, form):
         instance = form.save(commit=False)
+        instance.is_active = False
         instance.save()
 
         try:
