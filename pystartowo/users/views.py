@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views.generic import (
@@ -14,7 +15,6 @@ from django.shortcuts import render, redirect
 from django.utils.translation import gettext_lazy as _
 
 from .models import User
-
 from .forms import UserCreationForm, UserLoginForm
 
 
@@ -85,17 +85,23 @@ user_list_view = UserListView.as_view()
 
 
 class UserRegisterView(CreateView):
-    form = UserCreationForm
+    form_class = UserCreationForm
     template_name = 'registration/register.html'
 
-    def get(self, request):
-        form = self.form()
-        return render(request, self.template_name, {'form': form})
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.save()
 
-    def post(self, response):
-        form = self.form(response.POST)
-        if form.is_valid():
-            form.save()
+        try:
+            user_group = Group.objects.get(name='UsersGroup')
+        except:
+            Group.objects.create(name='UsersGroup')
+            user_group = Group.objects.get(name='UsersGroup')
+
+        instance.groups.add(user_group)
+
+        instance.save()
+        form.save_m2m()
 
         return redirect(reverse('homepage'))
 
@@ -104,19 +110,8 @@ user_register_view = UserRegisterView.as_view()
 
 
 class UserLoginView(FormView):
-    form = UserLoginForm
+    form_class = UserLoginForm
     template_name = 'registration/login.html'
-
-    def get(self, request):
-        form = self.form()
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, response):
-        form = self.form(response.POST)
-        if form.is_valid():
-            form.save()
-
-        return redirect(reverse('homepage'))
 
 
 user_login_view = UserLoginView.as_view()
