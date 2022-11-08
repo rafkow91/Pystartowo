@@ -20,14 +20,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
 from users.views import user_register_view
-
+from core.settings import ADMIN_SITE
 # fmt: off
 # (Skip Black formatting in this section)
 urlpatterns = [
     # NOTE: change the URL for Admin, for added security.
     # See #2 here: https://opensource.com/article/18/1/10-tips-making-django-admin-more-secure
     path('tinymce/', include('tinymce.urls')),
-    path('admin/', admin.site.urls),
+    path(ADMIN_SITE, admin.site.urls),
     path('', TemplateView.as_view(template_name='homepage.html'), name='homepage'),
     path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
