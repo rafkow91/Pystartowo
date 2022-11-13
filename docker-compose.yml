@@ -3,6 +3,8 @@ version: '3.9'
 services:
   app:
     build: .
+    volumes:
+      - ./pystartowo/static:/code/pystartowo/static
     networks:
       - db-network
       - frontend-network
@@ -10,6 +12,9 @@ services:
 
   frontend:
     image: nginx
+    volumes:
+      - ./nginx:/etc/nginx
+      - ./pystartowo/static:/static
     ports:
       - "80:80"
     networks:
