@@ -4,7 +4,7 @@ services:
   app:
     build: .
     volumes:
-      - ./pystartowo/static:/code/pystartowo/static
+      - ./static:/code/static
     networks:
       - db-network
       - frontend-network
