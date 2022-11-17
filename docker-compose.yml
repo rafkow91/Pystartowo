@@ -4,7 +4,7 @@ services:
   app:
     build: .
     volumes:
-      - ./static:/code/static
+      - ./pystartowo/staticfiles:/code/static
     networks:
       - db-network
       - frontend-network
@@ -14,7 +14,7 @@ services:
     image: nginx
     volumes:
       - ./nginx:/etc/nginx
-      - ./pystartowo/static:/static
+      - ./pystartowo/staticfiles:/static
     ports:
       - "81:80"
     networks:
