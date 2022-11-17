@@ -97,6 +97,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+CSRF_TRUSTED_ORIGINS = env('ALLOWED_HOSTS').split(',')
 
 
 # Database
