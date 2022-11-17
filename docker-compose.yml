@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./pystartowo/staticfiles:/code/static
+    networks:
+      - db-network
+      - frontend-network
+    restart: always
+
+  frontend:
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx
+      - ./pystartowo/staticfiles:/static
+    ports:
+      - "81:80"
+    networks:
+      - frontend-network
+    restart: always
+    depends_on:
+      - app
+
+networks:
+  db-network:
+    name: db-network
+    external: true
+  frontend-network:
+    name: frontend-network
+    external: true
