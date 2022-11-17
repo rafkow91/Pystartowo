@@ -1,6 +1,8 @@
-# Pystartowo.pl
+# Pystartowo
 
 _Python knowledge base for beginners_
+
+Check website [Pystartowo](pystartowo.toadres.pl) to see this project on your browser.
 
 ## Based on
 

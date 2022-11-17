@@ -88,16 +88,19 @@ class UserRegisterView(CreateView):
     form = UserCreationForm
     template_name = 'registration/register.html'
 
-    def get(self, request):
-        form = self.form()
-        return render(request, self.template_name, {'form': form})
 
-    def post(self, response):
-        form = self.form(response.POST)
-        if form.is_valid():
-            form.save()
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.is_active = False
+        instance.save()
 
-        return redirect(reverse('homepage'))
+        try:
+            user_group = Group.objects.get(name='UsersGroup')
+        except:
+            Group.objects.create(name='UsersGroup')
+            user_group = Group.objects.get(name='UsersGroup')
+
+        instance.groups.add(user_group)
 
 
 user_register_view = UserRegisterView.as_view()

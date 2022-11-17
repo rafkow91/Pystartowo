@@ -16,14 +16,15 @@ import environ
 # fmt: off
 # NOTE `fmt` comments disable/enable Black formatting in this section
 env = environ.Env(
-    DEBUG=(bool, False),
+    DEBUG=(bool, False)
 )
 environ.Env.read_env()
 # fmt: on
+# env = dotenv_values()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-
+ADMIN_SITE = env('ADMIN_SITE')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -32,8 +33,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG')
-ALLOWED_HOSTS = []
+DEBUG = env.bool('DJANGO_DEBUG')
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -96,6 +97,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+CSRF_TRUSTED_ORIGINS = [f'https://{site}' for site in ALLOWED_HOSTS]
 
 
 # Database
@@ -103,14 +105,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         # Change these settings in your .env file. Don't save them here!
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'sqlite3.db',
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': env('POSTGRES_NAME'),
-        # 'USER': env('POSTGRES_USER'),
-        # 'PASSWORD': env('POSTGRES_PASSWORD'),
-        # 'HOST': env('POSTGRES_HOST'),
-        # 'PORT': env('POSTGRES_PORT'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': 'sqlite3.db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('POSTGRES_NAME'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT'),
     }
 }
 
@@ -131,7 +133,7 @@ AUTH_USER_MODELS = ['users.User',]
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 LANGUAGE_CODE = 'pl-PL'
 TIME_ZONE = 'Europe/Warsaw'
-USE_I18N = True
+USE_I18N = False
 USE_TZ = True
 
 
@@ -141,11 +143,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Media files (uploads and such)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

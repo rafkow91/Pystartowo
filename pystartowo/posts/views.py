@@ -11,6 +11,8 @@ from django.views.generic import (
     FormView,
     ListView,
 )
+
+from core.settings import DEBUG
 from .models import Post, ToAdd
 from .forms import PostForm, ToAddForm
 from users.models import User
@@ -51,7 +53,7 @@ class PostFormView(CreateView):
         except:
             instance.author = None
         instance = form.save()
-
+        print('DEBUG', DEBUG)
         return HttpResponseRedirect(reverse('posts:main'))
 
 
