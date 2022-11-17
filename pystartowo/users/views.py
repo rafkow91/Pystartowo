@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views.generic import (
@@ -101,6 +102,8 @@ class UserRegisterView(CreateView):
             user_group = Group.objects.get(name='UsersGroup')
 
         instance.groups.add(user_group)
+        instance.save()
+        form.save_m2m()
 
 
 user_register_view = UserRegisterView.as_view()
